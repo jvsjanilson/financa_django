@@ -1,10 +1,5 @@
 from django.db import models
-
-
-TYPE_PAYMENT = [
-    (1, 'A Vista'),
-    (2, 'A Prazo')
-]
+from .choices import TypePayment
 
 
 class Estado(models.Model):
@@ -50,7 +45,7 @@ class Cliente(models.Model):
 class FormaPagamento(models.Model):
     codigo = models.CharField(max_length=2)
     descricao = models.CharField(max_length=60)
-    tipo = models.SmallIntegerField(choices=TYPE_PAYMENT, default=1)
+    tipo = models.SmallIntegerField(choices=TypePayment.choices, default=TypePayment.AVISTA)
 
     def __str__(self) -> str:
         return self.codigo
