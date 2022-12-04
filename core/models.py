@@ -53,6 +53,7 @@ class FormaPagamento(models.Model):
 
 class CondicaoPagamento(models.Model):
     descricao = models.CharField(max_length=60)
+    formapagamento = models.ForeignKey(FormaPagamento, on_delete=models.CASCADE)
     qtd_max_parcela = models.SmallIntegerField(default=1)
     tipo_intervalo = models.CharField(choices=TypeIntervalo, default=TypeIntervalo.DIARIO)
     intervalo = models.SmallIntegerField(default=0)
