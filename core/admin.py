@@ -17,3 +17,6 @@ class CidadeAdmin(admin.ModelAdmin):
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'cpfcnpj', 'fone', 'celular', 'ativo')
+    fields = (('nome', 'nome_fantasia'), ('cpfcnpj', 'insc_estadual', 'insc_municipal'), 
+    ('logradouro', 'numero', 'cep'), ('complemento', 'bairro'), ('estado', 'cidade'),
+    ('fone', 'celular', 'email'), 'ativo')
