@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Estado, Cidade, Cliente, FormaPagamento
+from .models import ( Estado, Cidade, Cliente, FormaPagamento
+, CondicaoPagamento)
 
 
 @admin.register(Estado)
@@ -27,3 +28,7 @@ class FormaPagamentoAdmin(admin.ModelAdmin):
     list_display = ('codigo', 'descricao', 'tipo')
     fields = (('codigo', 'descricao'), 'tipo')
     
+
+@admin.register(CondicaoPagamento)
+class CondicaoPagamentoAdmin(admin.ModelAdmin):
+    list_display = ('descricao', 'formapagamento', 'tipo_intervalo', 'dia_fixo', 'ativo')
