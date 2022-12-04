@@ -7,7 +7,7 @@ class Estado(models.Model):
     cod_ibge = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.nome
+        return self.uf
 
 
 class Cidade(models.Model):
