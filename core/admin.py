@@ -10,3 +10,4 @@ class EstadoAdmin(admin.ModelAdmin):
 @admin.register(Cidade)
 class CidadeAdmin(admin.ModelAdmin):
     list_display = ('nome', 'estado')
+
