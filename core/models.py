@@ -1,6 +1,12 @@
 from django.db import models
 
 
+TYPE_PAYMENT = [
+    (1, 'A Vista'),
+    (2, 'A Prazo')
+]
+
+
 class Estado(models.Model):
     nome = models.CharField(max_length=120)
     uf = models.CharField(max_length=2)
@@ -40,4 +46,12 @@ class Cliente(models.Model):
     def __str__(self) -> str:
         return self.nome
 
-   
+
+class FormaPagamento(models.Model):
+    codigo = models.CharField(max_length=2)
+    descricao = models.CharField(max_length=60)
+    tipo = models.SmallIntegerField(choices=TYPE_PAYMENT)
+
+    def __str__(self) -> str:
+        return self.codigo
+
