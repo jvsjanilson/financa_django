@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Estado, Cidade, Cliente
+from .models import Estado, Cidade, Cliente, FormaPagamento
 
 
 @admin.register(Estado)
@@ -20,3 +20,10 @@ class ClienteAdmin(admin.ModelAdmin):
     fields = (('nome', 'nome_fantasia'), ('cpfcnpj', 'insc_estadual', 'insc_municipal'), 
     ('logradouro', 'numero', 'cep'), ('complemento', 'bairro'), ('estado', 'cidade'),
     ('fone', 'celular', 'email'), 'ativo')
+
+
+@admin.register(FormaPagamento)
+class FormaPagamentoAdmin(admin.ModelAdmin):
+    list_display = ('codigo', 'descricao', 'tipo')
+    fields = (('codigo', 'descricao'), 'tipo')
+    
