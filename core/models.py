@@ -1,5 +1,5 @@
 from django.db import models
-from .choices import TypePayment
+from .choices import TypePayment, TypeIntervalo
 
 
 class Estado(models.Model):
@@ -50,3 +50,11 @@ class FormaPagamento(models.Model):
     def __str__(self) -> str:
         return self.codigo
 
+
+class CondicaoPagamento(models.Model):
+    descricao = models.CharField(max_length=60)
+    qtd_max_parcela = models.SmallIntegerField(default=1)
+    tipo_intervalo = models.CharField(choices=TypeIntervalo, default=TypeIntervalo.DIARIO)
+    intervalo = models.SmallIntegerField(default=0)
+    dia_fixo = models.BooleanField(default=False)
+    ativo = models.BooleanField(default=True)
