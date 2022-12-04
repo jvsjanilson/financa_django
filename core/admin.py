@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import ( Estado, Cidade, Cliente, FormaPagamento
-, CondicaoPagamento, Banco)
+, CondicaoPagamento, Banco, ContaCorrente)
 
 
 @admin.register(Estado)
@@ -40,3 +40,8 @@ class BancoAdmin(admin.ModelAdmin):
     list_display = ('codigo', 'descricao')
     fields = ('codigo', 'descricao')
 
+
+@admin.register(ContaCorrente)
+class ContaCorrenteAdmin(admin.ModelAdmin):
+    list_display = ('descricao', 'banco', 'numero_agencia', 'numero_conta', 'data_abertura', 'data_fechamento', 'ativo')
+    fields = (('descricao','banco'), ('numero_conta','numero_agencia'), ('data_abertura','data_fechamento'), 'ativo')
