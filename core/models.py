@@ -1,6 +1,7 @@
 from django.db import models
 from .choices import TypePayment, TypeIntervalo
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, RegexValidator
+
 
 class Estado(models.Model):
     nome = models.CharField(max_length=120)
@@ -65,8 +66,8 @@ class CondicaoPagamento(models.Model):
 
 class Banco(models.Model):
     descricao = models.CharField(max_length=60)
-    codigo = models.CharField(max_length=3, unique=True)
-
+    codigo = models.CharField(max_length=3, unique=True, validators=[RegexValidator(r'^[0-9]*$', 'Somente números')])
+    
     def __str__(self) -> str:
         return self.codigo
 
