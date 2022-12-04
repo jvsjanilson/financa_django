@@ -62,3 +62,11 @@ class CondicaoPagamento(models.Model):
 
     def __str__(self) -> str:
         return self.descricao
+
+class Banco(models.Model):
+    descricao = models.CharField(max_length=60)
+    codigo = models.CharField(max_length=3, unique=True)
+
+    def __str__(self) -> str:
+        return self.codigo
+
