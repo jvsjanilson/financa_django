@@ -43,7 +43,7 @@ class Cliente(models.Model):
 
 
 class FormaPagamento(models.Model):
-    codigo = models.CharField(max_length=2)
+    codigo = models.CharField(max_length=2, unique=True)
     descricao = models.CharField(max_length=60)
     tipo = models.SmallIntegerField(choices=TypePayment.choices, default=TypePayment.AVISTA)
 
