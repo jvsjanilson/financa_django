@@ -1,6 +1,6 @@
 from django.db import models
 from .choices import TypePayment, TypeIntervalo
-
+from django.core.validators import MinValueValidator
 
 class Estado(models.Model):
     nome = models.CharField(max_length=120)
@@ -54,9 +54,9 @@ class FormaPagamento(models.Model):
 class CondicaoPagamento(models.Model):
     descricao = models.CharField(max_length=60)
     formapagamento = models.ForeignKey(FormaPagamento, on_delete=models.CASCADE)
-    qtd_max_parcela = models.SmallIntegerField(default=1)
+    qtd_max_parcela = models.SmallIntegerField(default=1, validators=[MinValueValidator(1, 'Valor minimo é 1.')])
     tipo_intervalo = models.CharField(max_length=2, choices=TypeIntervalo.choices, default=TypeIntervalo.DIARIO)
-    intervalo = models.SmallIntegerField(default=0)
+    intervalo = models.SmallIntegerField(default=0, validators=[MinValueValidator(0, 'Valor mínimo é 0.')])
     dia_fixo = models.BooleanField(default=False)
     ativo = models.BooleanField(default=True)
 
