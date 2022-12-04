@@ -50,7 +50,7 @@ class Cliente(models.Model):
 class FormaPagamento(models.Model):
     codigo = models.CharField(max_length=2)
     descricao = models.CharField(max_length=60)
-    tipo = models.SmallIntegerField(choices=TYPE_PAYMENT)
+    tipo = models.SmallIntegerField(choices=TYPE_PAYMENT, default=1)
 
     def __str__(self) -> str:
         return self.codigo
