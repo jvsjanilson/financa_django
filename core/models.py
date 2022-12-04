@@ -59,3 +59,6 @@ class CondicaoPagamento(models.Model):
     intervalo = models.SmallIntegerField(default=0)
     dia_fixo = models.BooleanField(default=False)
     ativo = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return self.descricao
