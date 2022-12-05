@@ -40,6 +40,8 @@ class BancoAdmin(admin.ModelAdmin):
     list_display = ('codigo', 'descricao')
     fields = ('codigo', 'descricao')
 
+    class Media:
+        js = ("admin/js/jquery.init.js", "admin/js/vendor/jquery/jquery.js", "js/banco.js",)
 
 @admin.register(ContaCorrente)
 class ContaCorrenteAdmin(admin.ModelAdmin):
