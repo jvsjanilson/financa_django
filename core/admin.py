@@ -13,6 +13,8 @@ class EstadoAdmin(admin.ModelAdmin):
 class CidadeAdmin(admin.ModelAdmin):
     list_display = ('nome', 'estado')
     fields = (('nome', 'estado'), 'cod_ibge', 'capital')
+    
+    
 
 
 @admin.register(Cliente)
@@ -21,6 +23,9 @@ class ClienteAdmin(admin.ModelAdmin):
     fields = (('nome', 'nome_fantasia'), ('cpfcnpj', 'insc_estadual', 'insc_municipal'), 
     ('logradouro', 'numero', 'cep'), ('complemento', 'bairro'), ('estado', 'cidade'),
     ('fone', 'celular', 'email'), 'ativo')
+
+    class Media:
+        js = ("admin/js/jquery.init.js", "admin/js/vendor/jquery/jquery.js", "js/cliente.js",)
 
 
 @admin.register(FormaPagamento)
