@@ -12,7 +12,7 @@ class EstadoAdmin(admin.ModelAdmin):
 @admin.register(Cidade)
 class CidadeAdmin(admin.ModelAdmin):
     list_display = ('nome', 'estado')
-    fields = (('nome', 'estado'), 'cod_ibge')
+    fields = (('nome', 'estado'), 'cod_ibge', 'capital')
 
 
 @admin.register(Cliente)
