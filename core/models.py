@@ -16,6 +16,7 @@ class Estado(models.Model):
 class Cidade(models.Model):
     nome = models.CharField(max_length=120)
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+    capital = models.BooleanField(default=False)
     cod_ibge = models.IntegerField()
 
     def __str__(self) -> str:
