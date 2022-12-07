@@ -1,5 +1,5 @@
 from django.db import models
-from .choices import TypePayment, TypeIntervalo
+from .choices import TypePayment, TypeIntervalo, TypeSituacao
 from django.core.validators import MinValueValidator
 from .validators import number_only
 
@@ -85,3 +85,19 @@ class ContaCorrente(models.Model):
 
     def __str__(self) -> str:
         return f'Ag: {self.numero_agencia} - Conta: {self.numero_conta}'
+
+
+class ContaReceber(models.Model):
+    documento = models.CharField(max_length=20)
+    parcela = models.IntegerField(default=1)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    contacorrente = models.ForeignKey(ContaCorrente, on_delete=models.CASCADE)
+    emissao = models.DateField()
+    vencto = models.DateField()
+    valor = models.DecimalField(decimal_places=2, max_digits=10, default=0)
+    data_pagto = models.DateField(null=True, blank=True)
+    valor_pago = models.DecimalField(decimal_places=2, max_digits=10)
+    situacao = models.CharField(max_length=1, choices=TypeSituacao.choices, default=TypeSituacao.ABERTO)
+
+    def __str__(self) -> str:
+        return self.documento
