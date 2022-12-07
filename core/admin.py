@@ -15,8 +15,6 @@ class CidadeAdmin(admin.ModelAdmin):
     fields = (('nome', 'estado'), 'cod_ibge', 'capital')
     
     
-
-
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'cpfcnpj', 'fone', 'celular', 'ativo')
