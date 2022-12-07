@@ -97,7 +97,7 @@ class ContaReceber(models.Model):
     vencto = models.DateField()
     valor = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     data_pagto = models.DateField(null=True, blank=True)
-    valor_pago = models.DecimalField(decimal_places=2, max_digits=10)
+    valor_pago = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
     situacao = models.CharField(max_length=1, choices=TypeSituacao.choices, default=TypeSituacao.ABERTO)
 
     def __str__(self) -> str:
