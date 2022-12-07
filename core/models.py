@@ -80,7 +80,7 @@ class ContaCorrente(models.Model):
     numero_conta = models.CharField(max_length=20)
     numero_agencia = models.CharField(max_length=10)
     data_abertura = models.DateField()
-    data_fechamento = models.DateField(null=True)
+    data_fechamento = models.DateField(null=True, blank=True)
     saldo = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     ativo = models.BooleanField(default=True)
 
