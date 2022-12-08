@@ -1,5 +1,6 @@
 from pathlib import Path
 from decouple import config
+from django.conf.locale.pt_BR import formats
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -106,3 +107,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+formats.DATE_FORMAT = "d/m/Y"
