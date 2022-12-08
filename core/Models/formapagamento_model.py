@@ -10,3 +10,6 @@ class FormaPagamento(models.Model):
     def __str__(self) -> str:
         return self.codigo
 
+    class Meta:
+        verbose_name = 'Forma de pagamento'
+        verbose_name_plural = 'Forma de pagamentos'
