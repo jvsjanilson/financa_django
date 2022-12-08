@@ -8,6 +8,7 @@ class ClienteAdmin(admin.ModelAdmin):
     fields = (('nome', 'nome_fantasia'), ('cpfcnpj', 'insc_estadual', 'insc_municipal'), 
     ('logradouro', 'numero', 'cep'), ('complemento', 'bairro'), ('estado', 'cidade'),
     ('fone', 'celular', 'email'), 'ativo')
+    search_fields = ('nome', 'nome_fantasia', 'cpfcnpj', 'insc_estadual', 'fone', 'celular')
 
     actions = ('desativar', 'ativar')
 
