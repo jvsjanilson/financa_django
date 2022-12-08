@@ -8,3 +8,7 @@ class EstadoAdmin(admin.ModelAdmin):
     fields = (('uf', 'nome'), 'cod_ibge')
     search_fields = ('nome', 'uf')
     
+    class Media:
+        css = {
+            'all': ('css/core.css',)
+        }
