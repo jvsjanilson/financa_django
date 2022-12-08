@@ -6,14 +6,18 @@ from core.models import Cliente
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'cpfcnpj', 'fone', 'celular', 'ativo')
     fields = (('nome', 'nome_fantasia'), ('cpfcnpj', 'insc_estadual', 'insc_municipal'), 
-    ('logradouro', 'numero', 'cep'), ('complemento', 'bairro'), ('estado', 'cidade'),
+    ('logradouro', 'numero', 'cep', 'complemento', 'bairro', 'estado'), 'cidade',
     ('fone', 'celular', 'email'), 'ativo')
     search_fields = ('nome', 'nome_fantasia', 'cpfcnpj', 'insc_estadual', 'fone', 'celular')
+    list_filter = ('ativo',)
 
     actions = ('desativar', 'ativar')
 
     class Media:
         js = ("admin/js/jquery.init.js", "admin/js/vendor/jquery/jquery.js", "js/cliente.js",)
+        css = {
+            'all': ('css/core.css',)
+        }
 
     def desativar(self, request, queryset):
         count = queryset.update(ativo = 0)
