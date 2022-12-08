@@ -8,3 +8,5 @@ class ContaReceberAdmin(admin.ModelAdmin):
     
     fields = (('documento', 'parcela'), ('cliente','contacorrente'), ('emissao', 'vencto', 'valor'),
     ('data_pagto', 'valor_pago'), 'situacao')
+
+    search_fields = ('documento',)
