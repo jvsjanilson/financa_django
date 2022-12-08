@@ -6,4 +6,5 @@ from core.models import Estado
 class EstadoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'uf')
     fields = (('uf', 'nome'), 'cod_ibge')
+    search_fields = ('nome', 'uf')
     
