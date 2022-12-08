@@ -5,7 +5,7 @@ from core.Models.cidade_model import Cidade
 class Cliente(models.Model):
     nome = models.CharField(max_length=60)
     nome_fantasia = models.CharField(max_length=60, blank=True, null=True)
-    cpfcnpj = models.CharField(max_length=14, blank=True, null=True)
+    cpfcnpj = models.CharField(max_length=14, blank=True, null=True, verbose_name='CPF/CNPJ')
     insc_estadual = models.CharField(max_length=14, blank=True, null=True)
     insc_municipal = models.CharField(max_length=20, blank=True, null=True)
     logradouro = models.CharField(max_length=60, blank=True, null=True)
