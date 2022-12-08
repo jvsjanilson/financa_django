@@ -8,3 +8,7 @@ class FormaPagamentoAdmin(admin.ModelAdmin):
     search_fields = ('codigo', 'descricao')
     list_per_page = 10
     
+    class Media:
+        css = {
+            'all': ('css/core.css',)
+        }
