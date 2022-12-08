@@ -10,3 +10,8 @@ class ContaReceberAdmin(admin.ModelAdmin):
     ('data_pagto', 'valor_pago'), 'situacao')
 
     search_fields = ('documento',)
+    
+    class Media:
+        css = {
+            'all': ('css/core.css',)
+        }

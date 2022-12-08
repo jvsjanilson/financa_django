@@ -7,3 +7,7 @@ class ContaCorrenteAdmin(admin.ModelAdmin):
     fields = (('descricao','banco'), ('numero_conta','numero_agencia'), ('data_abertura','data_fechamento'), 'saldo', 'ativo')
     search_fields = ('descricao', 'numero_agencia', 'numero_conta')
     
+    class Media:
+        css = {
+            'all': ('css/core.css',)
+        }
