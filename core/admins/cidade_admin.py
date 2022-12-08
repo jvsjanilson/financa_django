@@ -5,3 +5,4 @@ from core.models import Cidade
 class CidadeAdmin(admin.ModelAdmin):
     list_display = ('nome', 'estado')
     fields = (('nome', 'estado'), 'cod_ibge', 'capital')
+    

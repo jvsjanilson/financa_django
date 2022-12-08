@@ -37,3 +37,4 @@ class ClienteAdmin(admin.ModelAdmin):
         self.message_user(request, message.format(count))
 
     ativar.short_description = 'Ativar cliente(s)'
+    
