@@ -6,3 +6,5 @@ class FormaPagamentoAdmin(admin.ModelAdmin):
     list_display = ('codigo', 'descricao', 'tipo')
     fields = (('codigo', 'descricao'), 'tipo')
     search_fields = ('codigo', 'descricao')
+    list_per_page = 10
+    
