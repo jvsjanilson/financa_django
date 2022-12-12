@@ -6,7 +6,7 @@ from core.validators import valida_cpfcnpj
 class Fornecedor(models.Model):
     nome = models.CharField(max_length=60)
     nome_fantasia = models.CharField(max_length=60, blank=True, null=True)
-    cpfcnpj = models.CharField(max_length=14, blank=True, null=True, validators=[valida_cpfcnpj], verbose_name='CPF/CNPJ')
+    cpfcnpj = models.CharField(max_length=14, blank=True, null=True, validators=[valida_cpfcnpj], verbose_name='CPF/CNPJ', unique=True)
     insc_estadual = models.CharField(max_length=14, blank=True, null=True)
     insc_municipal = models.CharField(max_length=20, blank=True, null=True)
     logradouro = models.CharField(max_length=60, blank=True, null=True)
