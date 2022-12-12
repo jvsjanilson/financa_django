@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from core.views import cidades
 urlpatterns = [
+    path('api/cidades/<int:estado>', cidades),
     path('', admin.site.urls),
-    path('api/cidades/<int:estado>', cidades)
     
 ]
