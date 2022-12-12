@@ -14,7 +14,7 @@ class ClienteAdmin(admin.ModelAdmin):
     actions = ('desativar', 'ativar')
 
     class Media:
-        js = ("admin/js/jquery.init.js", "admin/js/vendor/jquery/jquery.js", "js/cliente.js",)
+        js = ("admin/js/jquery.init.js", "admin/js/vendor/jquery/jquery.js", "js/cidades_lookup.js",)
         css = {
             'all': ('css/core.css',)
         }
