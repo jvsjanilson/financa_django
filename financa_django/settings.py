@@ -2,6 +2,7 @@ from pathlib import Path
 from decouple import config
 from django.conf.locale.pt_BR import formats
 import os
+from django.contrib import admin
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -108,3 +110,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 formats.DATE_FORMAT = "d/m/Y"
+admin.AdminSite.site_title = 'WebFin'
+admin.AdminSite.site_header = 'Web Finanças'
+admin.AdminSite.index_title = ''
