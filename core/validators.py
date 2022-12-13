@@ -10,7 +10,7 @@ def number_only(value):
     RegexValidator(r'^[0-9]*$', 'Somente números.').__call__(value)
 
 def letter_only(value):
-    RegexValidator(r'^[a-zA-Z\s]*$', 'Somente letras.').__call__(value)
+    RegexValidator(r'^[a-zA-Z\s]*$', 'Somente letras sem acentos.').__call__(value)
 
 def valida_cpfcnpj(value):
     if len(value) == LENGTH_CNPJ:
