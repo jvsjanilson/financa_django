@@ -7,3 +7,4 @@ from core.Models.banco_model import Banco
 from core.Models.contacorrente_model import ContaCorrente
 from core.Models.contareceber_model import ContaReceber
 from core.Models.fornecedor_model import Fornecedor
+from core.Models.contapagar_model import ContaPagar
