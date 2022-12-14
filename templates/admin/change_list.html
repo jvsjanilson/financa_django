@@ -73,7 +73,11 @@
       {% block filters %}
         {% if cl.has_filters %}
           <div id="changelist-filter">
-            <h2>{% translate 'Filter' %}</h2>
+            {% comment %} <div style="display: flex;justify-content: space-between;"> {% endcomment %}
+              
+              <h2  >{% translate 'Filter' %} </h2>
+              {% comment %} <a href="javascript:void(0)" class="addlink"></a> {% endcomment %}
+            {% comment %} </div> {% endcomment %}
             {% if cl.has_active_filters %}<h3 id="changelist-filter-clear">
               <a href="{{ cl.clear_all_filters_qs }}">&#10006; {% translate "Clear all filters" %}</a>
             </h3>{% endif %}
