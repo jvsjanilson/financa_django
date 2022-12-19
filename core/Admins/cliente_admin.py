@@ -19,8 +19,26 @@ class ClienteAdmin(admin.ModelAdmin):
             'all': ('css/core.css',)
         }
 
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions
+
+    @admin.action(description='Ativar cliente(s)')
+    def ativar(self, request, queryset):
+        count = queryset.update(ativo = True)
+
+        if count == 1:
+            message = '{} cliente foi ativado.'
+        else:
+            message = '{} clientes foram ativados.'
+        
+        self.message_user(request, message.format(count))    
+    
+    @admin.action(description='Desativar cliente(s)')
     def desativar(self, request, queryset):
-        count = queryset.update(ativo = 0)
+        count = queryset.update(ativo = False)
 
         if count == 1:
             message = '{} cliente foi desativado.'
@@ -28,18 +46,3 @@ class ClienteAdmin(admin.ModelAdmin):
             message = '{} clientes foram desativados.'
         
         self.message_user(request, message.format(count))
-
-    desativar.short_description = 'Desativar cliente(s)'
-
-    def ativar(self, request, queryset):
-        count = queryset.update(ativo = 1)
-
-        if count == 1:
-            message = '{} cliente foi ativado.'
-        else:
-            message = '{} clientes foram ativados.'
-        
-        self.message_user(request, message.format(count))
-
-    ativar.short_description = 'Ativar cliente(s)'
-    
